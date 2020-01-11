@@ -1,7 +1,12 @@
 namespace patterns {
     public class SemDesconto : IDesconto
     {
-        public IDesconto Proximo { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public SemDesconto()
+        {
+            Proximo = null;
+        }
+
+        public IDesconto Proximo { get; set; }
 
         public decimal Descontar(Orcamento orcamento)
         {
