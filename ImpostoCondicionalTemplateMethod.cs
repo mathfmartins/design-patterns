@@ -9,9 +9,9 @@ namespace patterns {
             return MinimaTaxacao(orcamento);
         }
 
-        public abstract bool DeveUsarMaximaTaxacao(Orcamento orcamento);
-        public abstract decimal MaximaTaxacao(Orcamento orcamento);
-        public abstract decimal MinimaTaxacao(Orcamento orcamento);
+        protected abstract bool DeveUsarMaximaTaxacao(Orcamento orcamento);
+        protected abstract decimal MaximaTaxacao(Orcamento orcamento);
+        protected abstract decimal MinimaTaxacao(Orcamento orcamento);
 
     }
 }
