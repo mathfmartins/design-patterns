@@ -1,7 +1,6 @@
 namespace patterns {
-    public abstract class ImpostoCondicionalTemplateMethod : IImposto
+    public abstract class TemplateDeImpostoCondicional : IImposto
     {
-        //A idéia é que a estrutura condicional de CalcularImposto só exista no template 
         public decimal CalcularImposto(Orcamento orcamento)
         {
             if (DeveUsarMaximaTaxacao(orcamento))
