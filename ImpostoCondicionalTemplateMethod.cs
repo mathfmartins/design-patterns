@@ -1,5 +1,5 @@
 namespace patterns {
-    public abstract class TemplateDeImpostoCondicional : IImposto
+    public abstract class ImpostoCondicionalTemplateMethod : IImposto
     {
         public decimal CalcularImposto(Orcamento orcamento)
         {
