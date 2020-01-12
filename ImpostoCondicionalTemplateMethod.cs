@@ -1,10 +1,12 @@
 namespace patterns {
-    public abstract class ImpostoCondicionalTemplateMethod : IImposto
+    public abstract class ImpostoCondicionalTemplateMethod : Imposto
     {
-        public decimal CalcularImposto(Orcamento orcamento)
+        public ImpostoCondicionalTemplateMethod() : base() {}
+        public ImpostoCondicionalTemplateMethod(Imposto outroImposto) : base(outroImposto) {}
+        public override decimal CalcularImposto(Orcamento orcamento)
         {
             if (DeveUsarMaximaTaxacao(orcamento))
-                return MaximaTaxacao(orcamento);
+                return MaximaTaxacao(orcamento) + CalcularDoOutroImposto(orcamento);
 
             return MinimaTaxacao(orcamento);
         }

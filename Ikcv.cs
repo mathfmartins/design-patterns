@@ -3,6 +3,14 @@ using System;
 namespace patterns {
     public class Ikcv : ImpostoCondicionalTemplateMethod
     {
+        public Ikcv() : base()
+        {
+        }
+
+        public Ikcv(Imposto outroImposto) : base(outroImposto)
+        {
+        }
+
         protected override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
         {
             return orcamento.Valor > 500 && ItemMaiorQue100ReaisNo(orcamento);

@@ -21,6 +21,17 @@ namespace design_patterns
 
             var irrs = new Irrs();
             irrs.CalcularImposto(orcamento);
+
+            //Decorator
+            Imposto icms = new Icms(new Iss());
+            System.Console.WriteLine(icms.CalcularImposto(orcamento));
+
+            Imposto icms2 = new Icms();
+            System.Console.WriteLine(icms2.CalcularImposto(orcamento)); 
+                 
+
+
+
         }
     }
 }
