@@ -1,12 +1,8 @@
 namespace patterns {
     public class Icms : Imposto {
 
-        public Icms() : base() {
-            
-        }
-        public Icms(Imposto outroImposto) : base(outroImposto)
-        {
-        }
+        public Icms() : base() { }
+        public Icms(Imposto outroImposto) : base(outroImposto) { }
 
         public override decimal CalcularImposto(Orcamento orcamento)
         {

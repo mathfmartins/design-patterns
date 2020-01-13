@@ -6,7 +6,7 @@ namespace patterns {
             OutroImposto = null;
         }
 
-        public Imposto(Imposto outroImposto)
+        protected Imposto(Imposto outroImposto)
         {
             OutroImposto = outroImposto;
         }
