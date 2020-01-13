@@ -22,15 +22,26 @@ namespace design_patterns
             var irrs = new Irrs();
             irrs.CalcularImposto(orcamento);
 
-            //Decorator
+            //Testando decorator
             Imposto icms = new Icms(new Iss());
             System.Console.WriteLine(icms.CalcularImposto(orcamento));
+            
+            Imposto icpp = new Icpp(new Ikcv());
+            System.Console.WriteLine(icpp.CalcularImposto(orcamento));
 
-            Imposto icms2 = new Icms();
-            System.Console.WriteLine(icms2.CalcularImposto(orcamento)); 
-                 
+            //Testando state
+            var reforma = new Orcamento(500.00m);
+            reforma.AplicarDescontoExtra();
+            System.Console.WriteLine(reforma.Valor);
 
+            reforma.Aprovar();
 
+            reforma.AplicarDescontoExtra();
+            System.Console.WriteLine(reforma.Valor);
+
+            reforma.Finalizar();
+            // reforma.AplicarDescontoExtra();
+            reforma.Reprovar();
 
         }
     }
