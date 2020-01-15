@@ -3,9 +3,6 @@ using System.Collections.Generic;
 
 namespace patterns { 
     public class NotaFiscalBuilder { 
-        public NotaFiscalBuilder() {
-            TodosOsItens = new List<ItemDaNota>();
-        }
         public NotaFiscal Construir() {
             return new NotaFiscal(RazaoSocial, Cnpj, DataDeEmissao, TodosOsItens, ValorTotal, Impostos, Observacoes);
         }
