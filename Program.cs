@@ -41,8 +41,23 @@ namespace design_patterns
 
             reforma.Finalizar();
             // reforma.AplicarDescontoExtra();
-            reforma.Reprovar();
+            // reforma.Reprovar();
 
+            //Testando 
+            var builder = new NotaFiscalBuilder();
+            builder.ParaRazaoSocial("Jurídica")
+                .ParaCnpj("71.539.819/0003-08")
+                .ParaDataDeEmissao()
+                .ParaItem(new ItemDaNota("Abajur", 299.00m))
+                .ParaItem(new ItemDaNota("Espelho", 87.99m))
+                .ParaItem(new ItemDaNota("Bandeira do México", 45.00m))
+                .GetValorTotal()
+                .GetValorImpostos()
+                .ParaObservacoes("--Observações--");
+
+            NotaFiscal notaFiscal = builder.Construir();
+            System.Console.WriteLine(notaFiscal.ValorTotal);
+            System.Console.WriteLine(notaFiscal.Impostos);
         }
     }
 }
