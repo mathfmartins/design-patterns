@@ -5,6 +5,9 @@ namespace patterns {
     public class NotaFiscalBuilder { 
         
         public NotaFiscal Construir() {
+            foreach (var acao in AcoesAposGerarNotaFiscal) { 
+                acao.Executar();
+            }
             return new NotaFiscal(RazaoSocial, Cnpj, DataDeEmissao, TodosOsItens, ValorTotal, Impostos, Observacoes);
         }
 
@@ -15,7 +18,7 @@ namespace patterns {
         private decimal Impostos { get; set; }
         private IList<ItemDaNota> TodosOsItens = new List<ItemDaNota>();
         private string Observacoes { get; set; }
-
+        private IList<AcaoAposGerarNotaFiscal> AcoesAposGerarNotaFiscal = new List<AcaoAposGerarNotaFiscal>();
         public NotaFiscalBuilder ParaRazaoSocial(string razaoSocial) { 
             RazaoSocial = razaoSocial;
             return this;
@@ -57,6 +60,10 @@ namespace patterns {
                 Impostos += item.Valor * 0.03m;
             }
             return this;
+        }
+        
+        public void AdicionarAcao(AcaoAposGerarNotaFiscal acao) { 
+            AcoesAposGerarNotaFiscal.Add(acao);
         }
     }
 }

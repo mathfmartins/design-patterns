@@ -43,7 +43,7 @@ namespace design_patterns
             // reforma.AplicarDescontoExtra();
             // reforma.Reprovar();
 
-            //Testando 
+            //Testando builder
             var builder = new NotaFiscalBuilder();
             builder.ParaRazaoSocial("Jurídica")
                 .ParaCnpj("71.539.819/0003-08")
@@ -55,9 +55,18 @@ namespace design_patterns
                 .GetValorImpostos()
                 .ParaObservacoes("--Observações--");
 
-            NotaFiscal notaFiscal = builder.Construir();
-            System.Console.WriteLine(notaFiscal.ValorTotal);
-            System.Console.WriteLine(notaFiscal.Impostos);
+            //Testando observer
+            builder.AdicionarAcao(new EnviadorEmail());
+            builder.AdicionarAcao(new EnviadorSms());
+            builder.AdicionarAcao(new SalvarNoBanco());
+            
+            NotaFiscal notaFiscal_1 = builder.Construir();
+            
+            System.Console.WriteLine(notaFiscal_1.ValorTotal);
+            System.Console.WriteLine(notaFiscal_1.Impostos);
+
+            
+            NotaFiscal notaFiscal_2 = builder.Construir();
         }
     }
 }
