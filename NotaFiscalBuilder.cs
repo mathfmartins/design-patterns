@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace patterns { 
     public class NotaFiscalBuilder { 
+
+        public NotaFiscalBuilder(IList<AcaoAposGerarNotaFiscal> acoes) { 
+            AcoesAposGerarNotaFiscal = acoes;
+        }
         
         public NotaFiscal Construir() {
             foreach (var acao in AcoesAposGerarNotaFiscal) { 

@@ -1,4 +1,5 @@
-﻿using patterns;
+﻿using System.Collections.Generic;
+using patterns;
 
 namespace design_patterns
 {
@@ -43,8 +44,14 @@ namespace design_patterns
             // reforma.AplicarDescontoExtra();
             // reforma.Reprovar();
 
-            //Testando builder
-            var builder = new NotaFiscalBuilder();
+            //Testando builder e observer
+            var listaDeAcoes = new List<AcaoAposGerarNotaFiscal>() {
+                new EnviadorEmail(),
+                new EnviadorSms(),
+                new SalvarNoBanco()
+            };
+            var builder = new NotaFiscalBuilder(listaDeAcoes);
+            
             builder.ParaRazaoSocial("Jurídica")
                 .ParaCnpj("71.539.819/0003-08")
                 .ParaDataDeEmissao()
@@ -55,10 +62,6 @@ namespace design_patterns
                 .GetValorImpostos()
                 .ParaObservacoes("--Observações--");
 
-            //Testando observer
-            builder.AdicionarAcao(new EnviadorEmail());
-            builder.AdicionarAcao(new EnviadorSms());
-            builder.AdicionarAcao(new SalvarNoBanco());
             
             NotaFiscal notaFiscal_1 = builder.Construir();
             
