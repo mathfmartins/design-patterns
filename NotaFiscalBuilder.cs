@@ -3,16 +3,17 @@ using System.Collections.Generic;
 
 namespace patterns { 
     public class NotaFiscalBuilder { 
+        
         public NotaFiscal Construir() {
             return new NotaFiscal(RazaoSocial, Cnpj, DataDeEmissao, TodosOsItens, ValorTotal, Impostos, Observacoes);
         }
 
-        public string RazaoSocial { get; set; }
-        public string Cnpj { get; set; }
-        public System.DateTime DataDeEmissao { get; private set; }
-        public decimal ValorTotal { get; private set; }
-        public decimal Impostos { get; private set; }
-        public IList<ItemDaNota> TodosOsItens = new List<ItemDaNota>();
+        private string RazaoSocial { get; set; }
+        private string Cnpj { get; set; }
+        private System.DateTime DataDeEmissao { get; set; }
+        private decimal ValorTotal { get; set; }
+        private decimal Impostos { get; set; }
+        private IList<ItemDaNota> TodosOsItens = new List<ItemDaNota>();
         private string Observacoes { get; set; }
 
         public NotaFiscalBuilder ParaRazaoSocial(string razaoSocial) { 
