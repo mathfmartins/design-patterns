@@ -61,15 +61,21 @@ namespace design_patterns
                 .GetValorTotal()
                 .GetValorImpostos()
                 .ParaObservacoes("--Observações--");
-
             
             NotaFiscal notaFiscal_1 = builder.Construir();
-            
             System.Console.WriteLine(notaFiscal_1.ValorTotal);
             System.Console.WriteLine(notaFiscal_1.Impostos);
-
-            
             NotaFiscal notaFiscal_2 = builder.Construir();
+
+            //Mais um exemplo de builder
+            var emailBuilder = new EmailBuilder();
+            emailBuilder
+            .Usuario("Matheus Martins")
+            .Destinatario("Amanda Mollina")
+            .Assunto("Clean Code")
+            .Mensagem("Você pode me emprestar um livro sobre clean code?");
+            Email email = emailBuilder.Construir();
+            System.Console.WriteLine(email);
         }
     }
 }
