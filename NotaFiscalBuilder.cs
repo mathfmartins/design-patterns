@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace patterns { 
     public class NotaFiscalBuilder { 
 
-        public NotaFiscalBuilder(IList<AcaoAposGerarNotaFiscal> acoes) { 
+        public NotaFiscalBuilder(List<AcaoAposGerarNotaFiscal> acoes) { 
             AcoesAposGerarNotaFiscal = acoes;
         }
         
