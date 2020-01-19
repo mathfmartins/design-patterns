@@ -20,7 +20,7 @@ namespace design_patterns
             decimal desconto = calculador.Calcular(orcamento);
             System.Console.WriteLine(desconto);
 
-            var irrs = new Irrs();
+            Imposto irrs = new Irrs();
             irrs.CalcularImposto(orcamento);
 
             //Testando decorator

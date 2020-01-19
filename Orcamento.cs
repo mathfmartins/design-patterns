@@ -25,7 +25,7 @@ namespace patterns
             Estado.Aprovar(this);
         }
          public void Reprovar() {
-            Estado.Aprovar(this);
+            Estado.Reprovar(this);
         }
          public void Finalizar() {
             Estado.Finalizar(this);
